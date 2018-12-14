@@ -1,0 +1,117 @@
+{#
+   This is the base template used as the application layout which contains the
+   common elements and decorates all the other templates.
+   See https://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts
+#}
+
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <title>{% block title %}Loud Crowd SEO Website{% endblock %}</title>
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('css/app') }}
+        {% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon_lc.ico') }}" />
+
+    </head>
+
+    <body id="{% block body_id %}{% endblock %}">
+
+        {% block header %}
+
+            <header>
+                <div class="navbar navbar-default navbar-static-top" role="navigation" style="background-color: black;">
+                    <div class="container">
+                        <div class="navbar-header col-md-3 col-lg-2">
+                            <a class="navbar-brand" href="{{ path('homepage') }}">
+                                <img src="https://loudcrowd.agency/wp-content/uploads/2017/09/logo-white.png" data-rjs="https://loudcrowd.agency/wp-content/uploads/2017/09/logo-white.png" alt="" class="light-logo">
+                            </a>
+
+                            <button type="button" class="navbar-toggle"
+                                    data-toggle="collapse"
+                                    data-target=".navbar-collapse">
+                                <span class="sr-only">{{ 'menu.toggle_nav'|trans }}</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+
+                                {% block header_navigation_links %}
+                                    <li>
+                                        <a href="/en/about/">
+                                             About
+                                        </a>
+                                    </li>
+
+                                {% endblock %}
+                                                                    <li>
+                                        <a href="https://loudcrowd.agency/" target="_blank" ><i class="fa fa-home" aria-hidden="true"></i> Loud Crowd Site</a>
+                                    </li>
+
+                                                                    <li>
+                                        <a href="https://loudcrowd.agency/contact/" target="_blank" 
+                                        <i class="fa fa-phone" aria-hidden="true"> Contact</a>
+                                    </li>                                    
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        {% endblock %}
+
+        <div class="container body-container">
+            {% block body %}
+                <div class="row">
+                    <div id="main" class="col-sm-9">
+                        {{ include('default/_flash_messages.html.twig') }}
+
+                        {% block main %}{% endblock %}
+                    </div>
+
+                    <div id="sidebar" class="col-sm-3">
+                        {% block sidebar %}
+                            {{ render_esi(controller('Symfony\\Bundle\\FrameworkBundle\\Controller\\TemplateController::templateAction', {
+                                'template': 'blog/about.html.twig',
+                                'sharedAge': 600,
+                                '_locale': app.request.locale
+                            })) }}
+                        {% endblock %}
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
+
+        {% block footer %}
+<footer id="footer" class=" footer-dark ">
+                            <!-- Copyright -->
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="copyright row">
+
+                            <div class="col-md-12"><div class="header-elem"><p class="social-icons"><a href="https://www.facebook.com/loudcrowdit/" target="_blank" title="Facebook" class="facebook"><i class="pixicon-facebook"></i></a><a href="https://www.twitter.com/loudcrowdagency" target="_blank" title="Twitter" class="twitter"><i class="pixicon-twitter"></i></a><a href="https://www.linkedin.com/company/loudcrowd-it/" target="_blank" title="linkedin" class="linkedin"><i class="pixicon-linked-in"></i></a><a href="https://www.instagram.com/loudcrowd.agency" target="_blank" title="Instagram" class="instagram"><i class="pixicon-instagram"></i></a></p></div><div class="header-elem"><p class="copyright-text">Copyright © 2017 Loud Crowd Digital Marketing &amp; Creative Agency, All Rights Reserved | Company No: 10278925</p></div></div>                       </div>
+                    </div>
+                </div>
+            
+            
+        </footer>
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('js/app') }}
+        {% endblock %}
+
+        {# it's not mandatory to set the timezone in localizeddate(). This is done to
+           avoid errors when the 'intl' PHP extension is not available and the application
+           is forced to use the limited "intl polyfill", which only supports UTC and GMT #}
+        <!-- Page rendered on {{ 'now'|localizeddate('long', 'long', null, 'UTC') }} -->
+    </body>
+</html>
