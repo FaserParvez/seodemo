@@ -28,3 +28,5 @@ browser at <http://localhost:8000>:
 $ cd seodemo
 $ php bin/console server:run
 ```
+[1]: https://symfony.com/doc/current/best_practices/index.html
+[2]: https://symfony.com/doc/current/reference/requirements.html
