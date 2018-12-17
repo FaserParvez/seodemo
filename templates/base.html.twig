@@ -25,11 +25,11 @@
 
         {% block header %}
 
-            <header>
+            <header id="header">
                 <div class="navbar navbar-default navbar-static-top" role="navigation" style="background-color: black;">
                     <div class="container">
                         <div class="navbar-header col-md-3 col-lg-2">
-                            <a class="navbar-brand" href="{{ path('homepage') }}">
+                            <a class="logo" href="{{ path('homepage') }}">
                                 <img src="https://loudcrowd.agency/wp-content/uploads/2017/09/logo-white.png" data-rjs="https://loudcrowd.agency/wp-content/uploads/2017/09/logo-white.png" alt="" class="light-logo">
                             </a>
 
@@ -42,7 +42,7 @@
                                 <span class="icon-bar"></span>
                             </button>
                         </div>
-                        <div class="navbar-collapse collapse">
+                        <div class="navbar-collapse collapse" style="text-align: center;">
                             <ul class="nav navbar-nav navbar-right">
 
                                 {% block header_navigation_links %}
@@ -68,23 +68,13 @@
             </header>
         {% endblock %}
 
-        <div class="container body-container">
+        <div>
             {% block body %}
-                <div class="row">
-                    <div id="main" class="col-sm-9">
+                <div class="">
+                    <div id="main">
                         {{ include('default/_flash_messages.html.twig') }}
 
                         {% block main %}{% endblock %}
-                    </div>
-
-                    <div id="sidebar" class="col-sm-3">
-                        {% block sidebar %}
-                            {{ render_esi(controller('Symfony\\Bundle\\FrameworkBundle\\Controller\\TemplateController::templateAction', {
-                                'template': 'blog/about.html.twig',
-                                'sharedAge': 600,
-                                '_locale': app.request.locale
-                            })) }}
-                        {% endblock %}
                     </div>
                 </div>
             {% endblock %}

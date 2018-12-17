@@ -10,17 +10,52 @@
 
 {% block body %}
 
-<section>
-    <div class="page-header">
-        <h1>Welcome to the SEO Page</h1>
 
+
+    <!-- Banner -->
+      <section id="banner">
+
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <h1>Enter Details Below for SEO CheckList</h1><br>
+                  <form>
+                    <input type="text" name="Name" placeholder="Name">
+                    <input type="email" name="pass" placeholder="Email">
+                    <input type="submit" name="login" class="login loginmodal-submit" value="SEND ME A FREE SEO CHECKLIST">
+                  </form>
+                </div>
+            </div>
+          </div>
+
+
+<div class="modal fade" id="modalAppointmentForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <h1>Enter Details Below to Make an Appointment</h1><br>
+                  <form>
+                    <input type="text" name="Name" placeholder="Name">
+                    <input type="email" name="pass" placeholder="Email">
+                    <input type="date" name="date" placeholder="Date">
+                    <input type="time" name="time" placeholder="Time">
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Make An Appointment">
+                  </form>
+                </div>
+            </div>
+          </div>
+
+
+
+
+        <div class="inner">
+          <h1>Welcome to the SEO Page</h1>
     <div class="row">
         <div class="col-sm-6">
             <div class="jumbotron">
                 <p>
                     Want a <strong>Free SEO check</strong> for your website? Click below and fill out the information.
                 </p>
-                        <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalSEOForm">
+                        <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#login-modal">
                         <i class="fa fa-check" aria-hidden="true"></i> Free SEO Checklist
                     </a>
                 </p>
@@ -40,101 +75,15 @@
             </div>
         </div>        
     </div>
-
-<div class="modal fade" id="modalSEOForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">ENTER YOUR NAME AND EMAIL ADDRESS BELOW TO START GET YOUR SEO CHECKLIST.</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fa fa-user prefix grey-text"></i><strong> Name</strong>
-          <input type="text" id="orangeForm-name" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="orangeForm-name"></label>
-        </div>
-        <div class="md-form mb-5">
-          <i class="fa fa-envelope prefix grey-text"></i> <strong>Email Address</strong>
-          <input type="email" id="orangeForm-email" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="orangeForm-email"></label>
         </div>
 
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-deep-orange">SEND ME A FREE SEO CHECKLIST</button>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="modal fade" id="modalAppointmentForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">ENTER YOUR DETAILS AND PREFERRED DATE/TIME BELOW TO BOOK AN APPOINTMENT.</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-<form>
-                            <!-- Form start -->
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label" for="name">Name</label>
-                                        <input id="name" name="name" type="text" placeholder="Name" class="form-control input-md">
-                                    </div>
-                                </div>
-                                <!-- Text input-->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label" for="email">Email</label>
-                                        <input id="email" name="email" type="text" placeholder="E-Mail" class="form-control input-md">
-                                    </div>
-                                </div>
-                                <!-- Text input-->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label" for="date">Preferred Date</label>
-                                        <input id="date" name="date" type="text" placeholder="Preferred Date" class="form-control input-md">
-                                    </div>
-                                </div>
-                                <!-- Select Basic -->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label" for="time">Preferred Time</label>
-                                        <select id="time" name="time" class="form-control">
-                                            <option value="9:00 to 9:00">9:00 to 10:00</option>
-                                            <option value="10:00 to 11:00">10:00 to 11:00</option>
-                                            <option value="11:00 to 12:00">11:00 to 12:00</option>
-                                            <option value="1:00 to 2:00">1:00 to 2:00</option>
-                                            <option value="20:00 to 3:00">10:00 to 3:00</option>
-                                            <option value="30:00 to 4:00">10:00 to 4:00</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Select Basic -->
-                                <!-- Button -->
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <button id="singlebutton" name="singlebutton" class="btn btn-default">Make An Appointment</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+      </section>
 
-
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-
-    </section>
 {% endblock %}
+
+
+
+
+
+
